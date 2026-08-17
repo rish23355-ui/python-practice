@@ -1,21 +1,18 @@
-Plain English: take string and count the numbers of characters if the count comes as even return true and if odd return false 
+#1: Odd or Even (string)
+#Plain English: Take string and count the numbers of characters if the count comes as even return true and if odd return false 
 def odd_or_even(s):
     if len(s) % 2 == 0:
-        return "Even" 
+        return True 
     else:
-        return "Odd"
+        return False
 
-print(odd_or_even("hello"))
-print(odd_or_even("hi"))
-print(odd_or_even("code"))
 
+#2: Default Mood
 def mood_today(mood="neutral"):
     return f"Today, I am feeling {mood}"
 
-print(mood_today("happy"))
-print(mood_today("sad"))
-print(mood_today())
 
+#3: How Many Vowels
 def count_vowels(s):
     count = {}
     count = 0
@@ -24,12 +21,9 @@ def count_vowels(s):
              count += 1
     return count
 
-print(count_vowels("rishabh"))        
-print(count_vowels("Celebration"))  # should give 5
-print(count_vowels("Palm"))         # should give 1
-print(count_vowels("Prediction"))
 
-We have to take the information given in the box of luke relations with others and make a dictionary of those relations to help him remind of who is who 
+#4: Luke, I Am Your...
+#Plain English: We have to take the information given in the box of luke relations with others and make a dictionary of those relations to help him remind of who is who 
 def relation_to_luke(name):
  relations = {
 "Darth Vader": "Luke, I am your father.",
@@ -39,23 +33,17 @@ def relation_to_luke(name):
 }
  return relations [name]
 
-print(relation_to_luke("Darth Vader"))
-print(relation_to_luke("Leia"))
-print(relation_to_luke("Han"))
-print(relation_to_luke("R2D2"))
 
-Plain English: Take an arrays of values resistance that are connected in series and calculates the total resistance of the circuit in ohms
+#5: Sum of Resistance in Series Circuits
+# Plain English: Take an arrays of values resistance that are connected in series and calculates the total resistance of the circuit in ohms
 def series_resistance(lst):
     total = 0
     for r in lst:
      total += r
     return total
 
-
-print(series_resistance([1, 5, 6, 3]))   # should give 15
-print(series_resistance([20, 35, 4]))    # should give 59
 	
-
+#6: Instant JAZZ
 def jazzify(lst):
     result = []
     for chord in lst:
@@ -65,9 +53,9 @@ def jazzify(lst):
             result.append(chord + '7')
     return result
 
-print(jazzify(["G", "F" , "C7"]))
 
-Plain English: Take a list and finds the intergers that appears an odd number of times and there will be one will intergers that will
+#7: Find the Odd Integer
+#Plain English: Take a list and finds the intergers that appears an odd number of times and there will be one will intergers that will
 def find_odd(lst):
 	counts = {}
 	for num in lst:
@@ -79,10 +67,8 @@ def find_odd(lst):
 		if counts[num] % 2 != 0:
 			return num
 
-print(find_odd([1, 1, 2, -2, 5, 2, 4, 4, -1, -2, 5]))  # → -1
-print(find_odd([10]))                                     # → 10
 
-
+#8: Two Sum
 def two_sums(nums, target):
     seen = {}
     for i, num in enumerate(nums):
@@ -91,9 +77,9 @@ def two_sums(nums, target):
             return [seen[need], i]
         seen[num] = i
 
-print(two_sums([2,7,11,9], 9))
 
-Plain English: Take an array and see if any value if appeared atleast twice then return true and if every value is differnt return false using if else and dictionary
+#9: Contains Duplicate
+#Plain English: Take an array and see if any value if appeared atleast twice then return true and if every value is differnt return false using if else and dictionary
 class Solution(object):
     def containsDuplicate(self, nums):
         seen = {}
@@ -101,4 +87,38 @@ class Solution(object):
             if num in seen:
                 return True
             seen[num] = 1
-        return False              
+        return False               
+    
+
+#10: Valid Anagram
+class Solution(object):
+    def isAnagram(self, s, t):
+        counts_s ={}
+        for letter in s:
+            if letter in counts_s:
+                counts_s[letter] += 1
+            else:
+                counts_s[letter] = 1
+        counts_t ={}
+        for letter in t:
+            if letter in counts_t:
+                counts_t[letter] += 1
+            else:
+                counts_t[letter] = 1
+        return counts_s == counts_t
+
+
+#11: Best Time to Buy and Sell Stock
+class Solution(object):
+    def maxProfit(self, prices):
+        min_price = prices[0]
+        max_profit = 0
+        for price in prices:
+            if price < min_price:
+                min_price = price
+
+            profit = price - min_price
+
+            if profit > max_profit:
+                max_profit > profit
+        return max_profit        
