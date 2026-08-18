@@ -122,3 +122,18 @@ class Solution(object):
             if profit > max_profit:
                 max_profit > profit
         return max_profit        
+
+
+#12: Maximum Subarray
+#Plain English: Take an array and find the subarray with the largest sum and return its sum
+class Solution(object):
+    def maxSubArray(self, nums):
+        current_sum = 0
+        max_sum = float('-inf')
+        for num in nums:
+            current_sum = current_sum + num
+            max_sum = max(current_sum, max_sum) 
+            if current_sum < 0:
+                current_sum = 0
+        return max_sum
+
